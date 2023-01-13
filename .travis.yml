@@ -1,0 +1,35 @@
+language: python
+python:
+  - 3.7
+  - 3.9
+  - pypy
+env:
+  - DJANGO="<3.12"
+  - DJANGO="<4.1"
+before_install:
+  - export DJANGO_SETTINGS_MODULE=jet.tests.settings
+install:
+  - pip install -q "Django${DJANGO}"
+  - pip install .
+  - pip install coverage==7.0.5
+  - pip install coveralls==3.3.1
+script:
+  - coverage run --source=jet --omit=*/migrations/*,*/south_migrations/*,*/tests/* manage.py test jet
+after_success:
+  - coverage report
+  - coveralls
+matrix:
+  exclude:
+
+    - python: 3.7
+      env: DJANGO="<3.12"
+    - python: 3.7
+      env: DJANGO="<4.1"
+
+    - python: 3.9
+      env: DJANGO="<3.12"
+    - python: 3.9
+      env: DJANGO="<4.1"
+
+    - python: pypy
+      env: DJANGO="<4.1"
