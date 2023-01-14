@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2.0.2
+-----
+* PR-*: Django template tags added as static
+* PR-*: Removed templagte tags as admin_static and staticfiles
+
+
 2.0.1
 -----
 * PR-*: Django 4.1 compatability fix
