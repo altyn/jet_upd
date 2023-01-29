@@ -1,6 +1,10 @@
 Changelog
 =========
 
+2.0.3
+-----
+* PR-*: Fixed admin filter compatibility
+
 2.0.2
 -----
 * PR-*: Django template tags added as static

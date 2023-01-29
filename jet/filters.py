@@ -6,15 +6,8 @@ try:
 except ImportError: # Django 1.11
     from django.urls import reverse
 
-try:
-    from django.contrib.admin.utils import get_model_from_relation
-except ImportError: # Django 1.6
-    from django.contrib.admin.util import get_model_from_relation
-
-try:
-    from django.forms.utils import flatatt
-except ImportError: # Django 1.6
-    from django.forms.util import flatatt
+from django.contrib.admin.utils import get_model_from_relation
+from django.forms.utils import flatatt
 
 
 class RelatedFieldAjaxListFilter(RelatedFieldListFilter):
@@ -54,7 +47,7 @@ try:
     from django import forms
     from django.contrib.admin.widgets import AdminDateWidget
     from rangefilter.filter import DateRangeFilter as OriginalDateRangeFilter
-    from django.utils.translation import ugettext as _
+    from django.utils.translation import gettext as _
 
 
     class DateRangeFilter(OriginalDateRangeFilter):
